@@ -1,17 +1,60 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image } from "react-native";
-import { Card, Text } from "react-native-paper";
+import { useCallback } from "react";
+import { StyleSheet, View, TouchableHighlight, Text } from "react-native";
+import QuizCard from "./QuizCard";
+import * as SplashScreen from "expo-splash-screen";
+
+import { useFonts } from "expo-font";
 
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    "Feather-Bold": require("./assets/fonts/Feather-Bold.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <View style={{ width: "100%" }}>
+        <TouchableHighlight
+          style={{
+            backgroundColor: "#1CB0F6",
+            height: 50,
+            borderWidth: 1,
+            borderColor: "rgb(24, 150, 209)",
+            borderRadius: 16,
+            borderBottomWidth: 4,
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              marginTop: 10,
+              fontWeight: 700,
+              color: "white",
+              fontSize: 14,
+              fontFamily: "Feather-Bold",
+            }}
+          >
+            LEARN THE LETTERS
+          </Text>
+        </TouchableHighlight>
+      </View>
       <View
         style={{
           flexDirection: "row",
           flexWrap: "wrap",
           flex: 1,
           alignItems: "flex-start",
-          marginTop: 50,
+          marginTop: 20,
         }}
       >
         {alphabets.map((alphabet) => {
@@ -49,52 +92,25 @@ const alphabets = [
     english: "v",
     hindi: "व",
   },
+  {
+    id: 4,
+    russian: "В в",
+    english: "v",
+    hindi: "व",
+  },
+  {
+    id: 5,
+    russian: "В в",
+    english: "v",
+    hindi: "व",
+  },
 ];
-
-const QuizCard = ({ russian, english, hindi }) => {
-  return (
-    <View
-      style={{
-        width: "25%",
-        marginLeft: 20,
-        marginTop: 20,
-        height: 80,
-        backgroundColor: "white",
-        border: 2,
-        borderWidth: 2,
-        borderColor: "#e5e5e5",
-        borderRadius: 16,
-        borderBottomWidth: 4,
-      }}
-    >
-      <View style={{ alignItems: "center" }}>
-        <Text style={{ marginTop: 10, fontWeight: 600 }}>{russian}</Text>
-      </View>
-      <View style={{ marginTop: -10 }}>
-        <View style={[{ flexDirection: "row", alignItems: "center" }]}>
-          <View style={[{ flex: 1, flexDirection: "row" }]}>
-            <Text style={{ color: "#B4B4B8", marginTop: 10, marginLeft: 10 }}>
-              {english}
-            </Text>
-          </View>
-          <View
-            style={[{ justifyContent: "space-evenly", marginVertical: 10 }]}
-          >
-            <Text style={{ color: "#B4B4B8", marginTop: 10, marginRight: 10 }}>
-              {hindi}
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 70,
+    margin: 30,
   },
 });
