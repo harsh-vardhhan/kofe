@@ -1,28 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { useCallback } from "react";
 import { StyleSheet, View, TouchableHighlight, Text } from "react-native";
 import QuizCard from "./QuizCard";
-import * as SplashScreen from "expo-splash-screen";
-
-import { useFonts } from "expo-font";
 
 export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    "Feather-Bold": require("./assets/fonts/Feather-Bold.ttf"),
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
+    <View style={styles.container}>
       <View style={{ width: "100%" }}>
         <TouchableHighlight
           style={{
