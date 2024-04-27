@@ -39,21 +39,15 @@ const alphabets = [
   },
   {
     id: 2,
-    russian: "A a",
-    english: "a",
-    hindi: "आ",
+    russian: "Б б",
+    english: "b",
+    hindi: "ब",
   },
   {
     id: 3,
-    russian: "A a",
-    english: "a",
-    hindi: "आ",
-  },
-  {
-    id: 4,
-    russian: "A a",
-    english: "a",
-    hindi: "आ",
+    russian: "В в",
+    english: "v",
+    hindi: "व",
   },
 ];
 
@@ -70,6 +64,7 @@ const QuizCard = ({ russian, english, hindi }) => {
         borderWidth: 2,
         borderColor: "#e5e5e5",
         borderRadius: 16,
+        borderBottomWidth: 4,
       }}
     >
       <View style={{ alignItems: "center" }}>
