@@ -14,41 +14,84 @@ export default function App() {
           marginTop: 50,
         }}
       >
-        <QuizCard />
-        <QuizCard />
-        <QuizCard />
-        <QuizCard />
+        {alphabets.map((alphabet) => {
+          return (
+            <QuizCard
+              key={alphabet.id}
+              russian={alphabet.russian}
+              english={alphabet.english}
+              hindi={alphabet.hindi}
+            />
+          );
+        })}
       </View>
       <StatusBar style="auto" />
     </View>
   );
 }
 
-const QuizCard = () => {
+const alphabets = [
+  {
+    id: 1,
+    russian: "A a",
+    english: "a",
+    hindi: "आ",
+  },
+  {
+    id: 2,
+    russian: "A a",
+    english: "a",
+    hindi: "आ",
+  },
+  {
+    id: 3,
+    russian: "A a",
+    english: "a",
+    hindi: "आ",
+  },
+  {
+    id: 4,
+    russian: "A a",
+    english: "a",
+    hindi: "आ",
+  },
+];
+
+const QuizCard = ({ russian, english, hindi }) => {
   return (
-    <Card
+    <View
       style={{
-        width: "42%",
+        width: "25%",
         marginLeft: 20,
         marginTop: 20,
-        height: 200,
+        height: 80,
         backgroundColor: "white",
+        border: 2,
+        borderWidth: 2,
+        borderColor: "#e5e5e5",
+        borderRadius: 16,
       }}
     >
-      <View>
-        <Image
-          style={{
-            height: 100,
-            width: 90,
-            margin: 10,
-            marginLeft: 40,
-            marginTop: 40,
-          }}
-          source={require("./assets/images/apple.png")}
-        />
-        <Text style={{ marginLeft: 60 }}>apple</Text>
+      <View style={{ alignItems: "center" }}>
+        <Text style={{ marginTop: 10, fontWeight: 600 }}>{russian}</Text>
       </View>
-    </Card>
+      <View style={{ marginTop: -10 }}>
+        <View style={[{ flexDirection: "row", alignItems: "center" }]}>
+          <View style={[{ flex: 1, flexDirection: "row" }]}>
+            <Text style={{ color: "#B4B4B8", marginTop: 10, marginLeft: 10 }}>
+              {english}
+            </Text>
+          </View>
+          <View
+            style={[{ justifyContent: "space-evenly", marginVertical: 10 }]}
+          >
+            <Text style={{ color: "#B4B4B8", marginTop: 10, marginRight: 10 }}>
+              {hindi}
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
   );
 };
 
