@@ -94,7 +94,7 @@ const alphabets = [
     id: 5,
     russian: "Д д",
     english: "d",
-    hindi: "ड़",
+    hindi: "ड",
   },
   {
     id: 6,
