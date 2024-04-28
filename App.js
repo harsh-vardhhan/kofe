@@ -198,6 +198,12 @@ const alphabets = [
     english: "f",
     hindi: "फ",
   },
+  {
+    id: 23,
+    russian: "Х х",
+    english: "kh",
+    hindi: "ख",
+  },
 ];
 
 const styles = StyleSheet.create({
