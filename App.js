@@ -1,10 +1,21 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, TouchableHighlight, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableHighlight,
+  Text,
+  ScrollView,
+} from "react-native";
 import QuizCard from "./QuizCard";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <View style={{ alignItems: "center", margin: 20 }}>
+        <Text style={{ fontSize: 23, fontWeight: 700 }}>
+          Let's Learn Russian!
+        </Text>
+      </View>
       <View style={{ width: "100%" }}>
         <TouchableHighlight
           style={{
@@ -23,7 +34,6 @@ export default function App() {
               fontWeight: 700,
               color: "white",
               fontSize: 14,
-              fontFamily: "Feather-Bold",
             }}
           >
             LEARN THE LETTERS
@@ -51,7 +61,7 @@ export default function App() {
         })}
       </View>
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -76,15 +86,117 @@ const alphabets = [
   },
   {
     id: 4,
-    russian: "В в",
-    english: "v",
-    hindi: "व",
+    russian: "Г г",
+    english: "g",
+    hindi: "ग",
   },
   {
     id: 5,
-    russian: "В в",
-    english: "v",
-    hindi: "व",
+    russian: "Д д",
+    english: "d",
+    hindi: "ड़",
+  },
+  {
+    id: 6,
+    russian: "Е е",
+    english: "ey",
+    hindi: "य",
+  },
+  {
+    id: 7,
+    russian: "Ё ё",
+    english: "yo",
+    hindi: "यो",
+  },
+  {
+    id: 8,
+    russian: "Ж ж",
+    english: "zh",
+    hindi: "ज़ाह",
+  },
+  {
+    id: 9,
+    russian: "З з",
+    english: "z",
+    hindi: "",
+  },
+  {
+    id: 10,
+    russian: "И и",
+    english: "i",
+    hindi: "इ",
+  },
+  {
+    id: 11,
+    russian: "Й й",
+    english: "",
+    hindi: "",
+  },
+  {
+    id: 12,
+    russian: "К к",
+    english: "k",
+    hindi: "क",
+  },
+  {
+    id: 13,
+    russian: "Л л",
+    english: "l",
+    hindi: "ल",
+  },
+  {
+    id: 14,
+    russian: "М м",
+    english: "m",
+    hindi: "म",
+  },
+  {
+    id: 15,
+    russian: "Н н",
+    english: "n",
+    hindi: "न",
+  },
+  {
+    id: 16,
+    russian: "О о",
+    english: "o",
+    hindi: "",
+  },
+  {
+    id: 17,
+    russian: "П п",
+    english: "p",
+    hindi: "प",
+  },
+  {
+    id: 18,
+    russian: "Р р",
+    english: "r",
+    hindi: "",
+  },
+  {
+    id: 19,
+    russian: "С с",
+    english: "s",
+    hindi: "",
+  },
+  {
+    id: 20,
+    russian: "Т т",
+    english: "t",
+    hindi: "ठ्ठ",
+  },
+  {
+    id: 21,
+    russian: "У у",
+    english: "oo",
+    hindi: "ऊ",
+  },
+  {
+    id: 22,
+    russian: "Ф ф",
+    english: "f",
+    hindi: "फ",
   },
 ];
 
